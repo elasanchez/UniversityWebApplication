@@ -63,12 +63,16 @@ CREATE TABLE OFFERS
 CREATE TABLE SECTION
 (
 	section_no INT NOT NULL PRIMARY KEY, 
+	prof_ssno INT NOT NULL,
+	course_number INT NOT NULL,
 	classroom VARCHAR(4), 
 	beg_time DATE, 
 	end_time DATE, 
 	seat_count INT, 
-	days VARCHAR(10)
-);
+	days VARCHAR(10),
+	FOREIGN KEY (prof_ssno) REFERENCES PROFESSOR(prof_ssn),
+	FOREIGN KEY (course_number) REFERENCES COURSE(course_no)
+)ENGINE=INNODB;
 
 CREATE TABLE MAJOR
 (
@@ -109,6 +113,7 @@ CREATE TABLE ENROLL
 	FOREIGN KEY(sec_num) REFERENCES SECTION(section_no),
 	FOREIGN KEY(id) REFERENCES STUDENT(cwid)
 )ENGINE=INNODB;
+
 
 
 
