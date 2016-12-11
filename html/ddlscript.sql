@@ -32,7 +32,7 @@ CREATE TABLE DEGREE
 (
 	degree_title VARCHAR (20) NOT NULL,
 	degree_ssn INT NOT NULL,
-	PRIMARY KEY(degree_tile,degree_ssn),
+	PRIMARY KEY(degree_title, degree_ssn),
 	FOREIGN KEY (degree_ssn) REFERENCES PROFESSOR(prof_ssn)
 );
 
@@ -112,5 +112,15 @@ CREATE TABLE ENROLL
 	FOREIGN KEY(sec_num) REFERENCES SECTION(section_no),
 	FOREIGN KEY(id) REFERENCES STUDENT(cwid)
 )ENGINE=INNODB;
+
+
+
+
+
+
+
+
+
+
 
 
