@@ -40,10 +40,9 @@ CREATE TABLE DEPARTMENT
 (
 	dept_no INT  NOT NULL PRIMARY KEY, 
 	dept_ssn INT NOT NULL,
-	dept_name VARCHAR(15) NOT NULL, 
+	dept_name VARCHAR(20) NOT NULL, 
 	dept_phone VARCHAR(10),
-	dept_addr VARCHAR(20), 
-	dept_location VARCHAR(15),
+	dept_loc VARCHAR(20),
 	FOREIGN KEY(dept_ssn)
 	REFERENCES PROFESSOR(prof_ssn)
 )ENGINE=INNODB;
@@ -53,7 +52,7 @@ CREATE TABLE COURSE
 	course_no INT NOT NULL PRIMARY KEY,
 	course_dept_no INT NOT NULL,
 	course_title VARCHAR(15),
-	textbook VARCHAR(20),
+	textbook VARCHAR(40),
 	units INT,
 	FOREIGN KEY(course_dept_no) REFERENCES DEPARTMENT(dept_no)
 );	
@@ -68,7 +67,7 @@ CREATE TABLE SECTION
 	beg_time DATE, 
 	end_time DATE, 
 	seat_count INT, 
-	days VARCHAR(10),
+	meeting_days VARCHAR(10),
 	FOREIGN KEY (prof_ssno) REFERENCES PROFESSOR(prof_ssn),
 	FOREIGN KEY (course_number) REFERENCES COURSE(course_no)
 )ENGINE=INNODB;
