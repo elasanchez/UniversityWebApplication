@@ -8,7 +8,7 @@ USE UNIVERSITY;
 CREATE TABLE STUDENT
 (
 	cwid INT NOT NULL PRIMARY KEY,
-	student_name VARCHAR(15) NOT NULL,
+	student_name VARCHAR(25) NOT NULL,
 	student_addr VARCHAR(20),
 	student_phone VARCHAR(10)
 );
@@ -22,10 +22,18 @@ CREATE TABLE PROFESSOR
 	title VARCHAR(15), 
 	area_code VARCHAR(3), 
 	phone VARCHAR(7),
-	st_addr VARCHAR(15),
-	city VARCHAR(10), 
+	st_addr VARCHAR(20),
+	city VARCHAR(20), 
 	state CHAR(2), 
 	zip VARCHAR(5)
+);
+
+CREATE TABLE DEGREE
+(
+	degree_title VARCHAR (20) NOT NULL,
+	degree_ssn INT NOT NULL,
+	PRIMARY KEY(degree_tile,degree_ssn),
+	FOREIGN KEY (degree_ssn) REFERENCES PROFESSOR(prof_ssn)
 );
 
 CREATE TABLE DEPARTMENT
@@ -38,27 +46,18 @@ CREATE TABLE DEPARTMENT
 	dept_location VARCHAR(15),
 	FOREIGN KEY(dept_ssn)
 	REFERENCES PROFESSOR(prof_ssn)
-)ENGINE=INNODB	;
+)ENGINE=INNODB;
 
 CREATE TABLE COURSE
 (
 	course_no INT NOT NULL PRIMARY KEY,
+	course_dept_no INT NOT NULL,
 	course_title VARCHAR(15),
 	textbook VARCHAR(20),
-	units INT
-);
+	units INT,
+	FOREIGN KEY(course_dept_no) REFERENCES DEPARTMENT(dept_no)
+);	
 
-CREATE TABLE OFFERS
-(
-	dept_num INT NOT NULL,
-	course_num INT NOT NULL,
-	
-	PRIMARY KEY (dept_num, course_num),
- 	UNIQUE INDEX ( dept_num, course_num),
-	FOREIGN KEY(dept_num) REFERENCES DEPARTMENT(dept_no),
-	FOREIGN KEY(course_num)	REFERENCES COURSE(course_no)
-
-)ENGINE=INNODB;
 
 CREATE TABLE SECTION
 (
@@ -113,16 +112,5 @@ CREATE TABLE ENROLL
 	FOREIGN KEY(sec_num) REFERENCES SECTION(section_no),
 	FOREIGN KEY(id) REFERENCES STUDENT(cwid)
 )ENGINE=INNODB;
-
-
-
-
-
-
-
-
-
-
-
 
 
