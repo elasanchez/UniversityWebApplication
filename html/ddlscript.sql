@@ -10,7 +10,7 @@ CREATE TABLE STUDENT
 	cwid INT NOT NULL PRIMARY KEY,
 	student_name VARCHAR(25) NOT NULL,
 	student_addr VARCHAR(20),
-	student_phone VARCHAR(10)
+	student_phone VARCHAR(15)
 );
 
 CREATE TABLE PROFESSOR
@@ -20,8 +20,8 @@ CREATE TABLE PROFESSOR
 	sex CHAR(1), 
 	salary FLOAT(2), 
 	title VARCHAR(15), 
-	area_code VARCHAR(3), 
-	phone VARCHAR(7),
+	area_code VARCHAR(5), 
+	phone VARCHAR(10),
 	st_addr VARCHAR(20),
 	city VARCHAR(20), 
 	state CHAR(2), 
@@ -30,7 +30,7 @@ CREATE TABLE PROFESSOR
 
 CREATE TABLE DEGREE
 (
-	degree_title VARCHAR (20) NOT NULL,
+	degree_title VARCHAR (25) NOT NULL,
 	degree_ssn INT NOT NULL,
 	PRIMARY KEY(degree_title, degree_ssn),
 	FOREIGN KEY (degree_ssn) REFERENCES PROFESSOR(prof_ssn)
@@ -45,7 +45,7 @@ CREATE TABLE DEPARTMENT
 	dept_loc VARCHAR(20),
 	FOREIGN KEY(dept_ssn)
 	REFERENCES PROFESSOR(prof_ssn)
-)ENGINE=INNODB;
+);
 
 CREATE TABLE COURSE
 (
@@ -63,14 +63,14 @@ CREATE TABLE SECTION
 	section_no INT NOT NULL PRIMARY KEY, 
 	prof_ssno INT NOT NULL,
 	course_number INT NOT NULL,
-	classroom VARCHAR(4), 
-	beg_time DATE, 
-	end_time DATE, 
+	classroom VARCHAR(10), 
+	beg_time VARCHAR(10), 
+	end_time VARCHAR(10), 
 	seat_count INT, 
 	meeting_days VARCHAR(10),
 	FOREIGN KEY (prof_ssno) REFERENCES PROFESSOR(prof_ssn),
 	FOREIGN KEY (course_number) REFERENCES COURSE(course_no)
-)ENGINE=INNODB;
+);
 
 CREATE TABLE MAJOR
 (
@@ -80,7 +80,7 @@ CREATE TABLE MAJOR
 	FOREIGN KEY (student_major_id) REFERENCES STUDENT(cwid),
 	FOREIGN KEY (dept_major_id) REFERENCES DEPARTMENT(dept_no)
 
-)ENGINE= INNODB;
+);
 
 CREATE TABLE MINOR
 (
@@ -90,7 +90,7 @@ CREATE TABLE MINOR
 	FOREIGN KEY(student_minor_id) REFERENCES STUDENT(cwid),
 	FOREIGN KEY(dept_minor_id) REFERENCES DEPARTMENT(dept_no)
 
-) ENGINE = INNODB;
+);
 
 CREATE TABLE PREREQUISITE
 (
@@ -98,7 +98,7 @@ CREATE TABLE PREREQUISITE
 	prereq_title VARCHAR(15),
 	PRIMARY KEY(crs_no,prereq_title),
 	FOREIGN KEY(crs_no) REFERENCES COURSE (course_no)
-) ENGINE = INNODB;
+);
 
 CREATE TABLE ENROLL
 (
@@ -110,7 +110,16 @@ CREATE TABLE ENROLL
 	FOREIGN KEY(crs_num) REFERENCES COURSE(course_no),
 	FOREIGN KEY(sec_num) REFERENCES SECTION(section_no),
 	FOREIGN KEY(id) REFERENCES STUDENT(cwid)
-)ENGINE=INNODB;
+);
+
+
+
+
+
+
+
+
+
 
 
 
