@@ -1,3 +1,10 @@
+
+<!-- 
+Developed by Edgard Luigi Sanchez, Raul Garcia, Jay Johnson
+
+This file will handle the professor interface.
+	-calls configuration file to create connection.
+ -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,7 +67,7 @@
 				echo "Couldn't issue database query.      <br>";
 				echo mysqli_error($connect); //issue error
 			}
-			mysql_close($connect);
+			mysqli_close($connect);
 		}
 		else
 		{
@@ -118,7 +125,7 @@
 						echo mysqli_error($connect); //issue error
 					}
 
-					mysql_close($connect);
+					mysqli_close($connect);
 				}
 				else
 				{
