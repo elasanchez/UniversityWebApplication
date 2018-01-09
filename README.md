@@ -6,7 +6,7 @@ to be used in data driven companies.
 
 ###### Prograd description:
 
-Given the ssn of a prof (not safe in real life), list the titles, classrooms,
+Given the ssn of a prof (not safe in real life unless ecrypted and handled correctly), list the titles, classrooms,
 meeting days and time of classes.
 
 Given the course number and section number, list the grades of the students and the total number of students
