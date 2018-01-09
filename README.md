@@ -1,7 +1,7 @@
 ## University Web Application
 This simple project combines php & mysql to create a website and query a database.
 This project will allow an easy way to learn the basics of php and mysql. 
-While it is simple, it enables me to succesfully complete a project that is scalable 
+While it is simple, it enables me to successfully complete a project that is scalable 
 to be used in data driven companies. 
 
 ###### Prograd description:
