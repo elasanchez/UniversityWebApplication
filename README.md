@@ -1,9 +1,3 @@
-# UniversityWebApplication
-This project consist of php & mysql to create a website with database
-
-
-
-
-Plan:
-
-Try creating a master branch inside the server to automatically pull from github.
+# University Web Application
+This project will combine php & mysql to create a website and query a database using
+student's course name and id.
